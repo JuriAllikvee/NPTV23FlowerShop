@@ -20,7 +20,6 @@ public class Main {
     public static void main(String[] args) {
         AppHelper<Flower> flowerAppHelper = new FlowerAppHelper();
         AppHelper<Customer> customerAppHelper = new CustomerAppHelper();
-
         FileRepository<Flower> flowerStorage = new Storage<>();
         FileRepository<Customer> customerStorage = new Storage<>();
         FileRepository<Order> orderStorage = new Storage<>();

@@ -24,27 +24,23 @@ public class FlowerAppHelperTest {
     @BeforeEach
     public void setUp() {
         flowerAppHelper = new FlowerAppHelper();
-        System.setOut(new PrintStream(outContent)); // Перенаправляем System.out для захвата вывода
+        System.setOut(new PrintStream(outContent));
     }
 
     @AfterEach
     public void tearDown() {
-        System.setOut(originalOut); // Восстанавливаем System.out
+        System.setOut(originalOut);
         outContent.reset();
     }
 
     @Test
     public void testCreate() {
-        // Создаем spy объект для FlowerAppHelper
         FlowerAppHelper spyHelper = spy(flowerAppHelper);
 
-        // Мокаем ввод для метода getString
         doReturn("Роза", "25.5").when(spyHelper).getString();
 
-        // Вызываем метод create и проверяем результат
         Flower flower = spyHelper.create();
 
-        // Проверяем, что объект Flower создан с ожидаемыми значениями
         assertNotNull(flower);
         assertEquals("Роза", flower.getName());
         assertEquals(25.5, flower.getPrice(), 0.01);
@@ -52,12 +48,10 @@ public class FlowerAppHelperTest {
 
     @Test
     public void testPrintList() {
-        // Создаем список цветов для теста
         List<Flower> flowers = new ArrayList<>();
         flowers.add(new Flower("Роза", 25.5));
         flowers.add(new Flower("Лилия", 15.0));
 
-        // Вызываем метод printList и проверяем вывод
         flowerAppHelper.printList(flowers);
 
         String expectedOutput = "1. Роза - $25.50" + System.lineSeparator() +

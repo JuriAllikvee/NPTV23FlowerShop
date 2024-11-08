@@ -35,7 +35,6 @@ public class CustomerAppHelperTest {
 
     @Test
     public void testCreate() {
-        // Мокируем методы ввода
         CustomerAppHelper spyHelper = Mockito.spy(customerAppHelper);
         doReturn("Иванов", "Иван", "+1234567890").when(spyHelper).getString();
 

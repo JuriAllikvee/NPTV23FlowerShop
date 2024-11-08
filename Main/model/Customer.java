@@ -9,7 +9,7 @@ public class Customer implements Serializable {
     private UUID id;
     private String firstName;
     private String lastName;
-    private String phone; // Добавлено поле для номера телефона
+    private String phone;
 
     public Customer() {
         this.id = UUID.randomUUID();

@@ -25,7 +25,6 @@ public class OrderAppHelper implements AppHelper<Order>, Input {
         try {
             System.out.println("----- Оформление заказа -----");
 
-            // Display available flowers and select one
             flowerService.print();
             System.out.print("Выберите номер цветка: ");
             int flowerIndex = Integer.parseInt(getString()) - 1;

@@ -36,16 +36,14 @@ public class OrderAppHelperTest {
 
     @AfterEach
     public void tearDown() {
-        System.setOut(originalOut); // Восстанавливаем System.out
+        System.setOut(originalOut);
         outContent.reset();
     }
 
     @Test
     public void testCreate() {
-        // Создаем мок для OrderAppHelper
         OrderAppHelper spyHelper = Mockito.spy(orderAppHelper);
 
-        // Мокаем список цветов и клиентов
         List<Flower> flowers = new ArrayList<>();
         flowers.add(new Flower("Роза", 25.5));
         when(flowerService.list()).thenReturn(flowers);
@@ -54,10 +52,8 @@ public class OrderAppHelperTest {
         customers.add(new Customer("Иванов", "Иван", "+1234567890"));
         when(customerService.list()).thenReturn(customers);
 
-        // Мокаем ввод пользователя
         doReturn("1", "1").when(spyHelper).getString(); // Выбираем первый цветок и первого клиента
 
-        // Вызываем метод create и проверяем результат
         Order order = spyHelper.create();
 
         assertNotNull(order, "Заказ должен быть создан");
@@ -68,7 +64,6 @@ public class OrderAppHelperTest {
 
     @Test
     public void testPrintList() {
-        // Создаем список заказов для теста
         List<Order> orders = new ArrayList<>();
         Flower flower = new Flower("Роза", 25.5);
         Customer customer = new Customer("Иванов", "Иван", "+1234567890");
@@ -78,7 +73,6 @@ public class OrderAppHelperTest {
         order.setOrderDate(LocalDate.now());
         orders.add(order);
 
-        // Вызываем метод printList и проверяем вывод
         orderAppHelper.printList(orders);
 
         String expectedOutput = String.format("----- Список заказов -----%n" +
