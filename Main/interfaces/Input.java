@@ -3,8 +3,11 @@ package interfaces;
 import java.util.Scanner;
 
 public interface Input {
+    Scanner scanner = new Scanner(System.in);
+
     default String getString() {
-        Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 }
+
+

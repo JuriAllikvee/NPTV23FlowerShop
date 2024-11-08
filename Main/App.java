@@ -94,7 +94,8 @@ public class App implements Input {
                     String customerLastName = getString();
                     System.out.print("Введите имя клиента для редактирования: ");
                     String customerFirstName = getString();
-                    Customer customerToEdit = new Customer(customerFirstName, customerLastName);
+                    Customer customerToEdit = new Customer(customerFirstName, customerLastName, ""); // Передаем пустую строку для телефона
+
                     if (customerService.edit(customerToEdit)) {
                         System.out.println("Клиент успешно отредактирован");
                     } else {
@@ -107,7 +108,8 @@ public class App implements Input {
                     String customerLastNameToDelete = getString();
                     System.out.print("Введите имя клиента для удаления: ");
                     String customerFirstNameToDelete = getString();
-                    Customer customerToDelete = new Customer(customerFirstNameToDelete, customerLastNameToDelete);
+                    Customer customerToDelete = new Customer(customerFirstNameToDelete, customerLastNameToDelete, ""); // Передаем пустую строку для телефона
+
                     if (customerService.remove(customerToDelete)) {
                         System.out.println("Клиент успешно удален");
                     } else {

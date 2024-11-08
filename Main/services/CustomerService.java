@@ -57,7 +57,12 @@ public class CustomerService implements Service<Customer> {
 
     @Override
     public boolean print() {
-        return customerAppHelper.printList(this.list());
+        List<Customer> customers = this.list();
+        if (customers.isEmpty()) {
+            System.out.println("Список клиентов пуст.");
+            return false;
+        }
+        return customerAppHelper.printList(customers);
     }
 
     @Override

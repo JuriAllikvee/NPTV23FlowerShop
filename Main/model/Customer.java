@@ -4,18 +4,22 @@ import java.io.Serializable;
 import java.util.UUID;
 
 public class Customer implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private UUID id;
     private String firstName;
     private String lastName;
+    private String phone; // Добавлено поле для номера телефона
 
     public Customer() {
         this.id = UUID.randomUUID();
     }
 
-    public Customer(String firstName, String lastName) {
+    public Customer(String firstName, String lastName, String phone) {
         this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.lastName = lastName;
+        this.phone = phone;
     }
 
     public String getFirstName() {
@@ -24,5 +28,13 @@ public class Customer implements Serializable {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
